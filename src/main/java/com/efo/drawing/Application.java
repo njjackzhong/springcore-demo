@@ -13,10 +13,10 @@ public class Application {
 
             //Shape    triangle = new Triangle();
 
-            Shape triangle = context.getBean("triangle", Triangle.class);
+            Shape triangle = context.getBean("triangle-name", Triangle.class);               //get first level bean
             triangle.draw();
 
-            System.out.println(String.format("--------index=%5s(%5s)--------", index,triangle));
+           // System.out.println(String.format("--------index=%5s(%5s)--------", index,triangle));
 
             //Shape  circle = new Circle();
 
