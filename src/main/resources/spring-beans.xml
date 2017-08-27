@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+  <!--  <bean id="adrs" class="com.efo.employee.Address">
+        <property name="city" value="YanCheng"/>
+        <property name="state" value="JiangSu"/>
+        <property name="zipCode" value="210000"/>
+    </bean>
+
+    <bean id="emp1" class="com.efo.employee.Employee" init-method="init" destroy-method="destroy">
+        <property name="egender" value="M"/>
+        <property name="eid" value="101"/>
+        <property name="ename" value="Tim"/>
+        &lt;!&ndash;<constructor-arg ref="adrs"/>&ndash;&gt;
+        <property name="address" ref="adrs"/>
+    </bean>-->
+    <!--<bean id="emp2" class="com.efo.employee.Employee">-->
+        <!--<property name="egender" value="F"/>-->
+        <!--<property name="eid" value="102"/>-->
+        <!--<property name="ename" value="Luck"/>-->
+    <!--</bean>-->
+
+    <bean id="triangle" class="com.efo.drawing.Triangle" destroy-method="destroy">
+        <constructor-arg index="0" value="Equilateral" />
+        <constructor-arg index="1" value="20"  />
+    </bean>
+
+</beans>
