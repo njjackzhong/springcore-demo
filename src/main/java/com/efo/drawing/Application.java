@@ -3,26 +3,33 @@ package com.efo.drawing;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.util.Date;
+
 public class Application {
     public static void main(String[] args) {
-        int index = 0;
+        long startTick = new Date().getTime();
+
 
         AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml");
+        context.registerShutdownHook();
+        Triangle triangle = context.getBean("triangle-name", Triangle.class);               //get first level bean
+        triangle.draw();
 
-        while (index++ < 10) {
+        triangle.setHeight(triangle.getHeight() + 1);
+        triangle = context.getBean("triangle-name", Triangle.class);               //get first level bean
+        triangle.draw();
 
-            //Shape    triangle = new Triangle();
 
-            Shape triangle = context.getBean("triangle-name", Triangle.class);               //get first level bean
-            triangle.draw();
 
-           // System.out.println(String.format("--------index=%5s(%5s)--------", index,triangle));
+        AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
+        Quad quad = applicationContext.getBean("quad", Quad.class);
+        System.out.println("Quad is:" + quad);
+        applicationContext.destroy();
 
-            //Shape  circle = new Circle();
+        long endTick = new Date().getTime();
 
-            //circle.draw();
-        }
 
-        context.destroy();
+        System.out.println(String.format("Time used:%5s ms", endTick - startTick));
+
     }
 }

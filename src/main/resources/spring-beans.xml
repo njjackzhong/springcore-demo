@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd" default-init-method="myInit" default-destroy-method="myDestroy">
 
     <!--  <bean id="adrs" class="com.efo.employee.Address">
           <property name="city" value="YanCheng"/>
@@ -23,7 +23,7 @@
     <!--</bean>-->
 
 
-    <bean id="triangle" class="com.efo.drawing.Triangle" destroy-method="destroy" name="triangle-name">
+    <bean id="triangle" class="com.efo.drawing.Triangle"   name="triangle-name" >
         <constructor-arg index="0" value="Equilateral"/>
         <constructor-arg index="1" value="20"/>
         <property name="pointA" ref="pointA"/>
@@ -42,7 +42,7 @@
     </bean>
 
 
-    <bean id="pointA" class="com.efo.drawing.Point">
+    <bean id="pointA" class="com.efo.drawing.Point" >
         <property name="x" value="0"/>
         <property name="y" value="0"/>
     </bean>

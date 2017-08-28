@@ -9,7 +9,7 @@ public class Point {
     }
 
     public void setX(int x) {
-        System.out.println("Set X="+x);
+        //System.out.println("Set X="+x);
         this.x = x;
     }
 

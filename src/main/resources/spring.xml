@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="parentQuad" class="com.efo.drawing.Quad">
+        <property name="points">
+            <list>
+                <ref bean="pointA"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="quad" class="com.efo.drawing.Quad" parent="parentQuad">
+        <property name="points">
+            <list merge="true">
+                <ref bean="pointB"/>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="pointA" class="com.efo.drawing.Point">
+        <property name="y" value="0"/>
+        <property name="x" value="0"/>
+    </bean>
+
+    <bean id="pointB" class="com.efo.drawing.Point">
+        <property name="x" value="-10"/>
+        <property name="y" value="-10"/>
+    </bean>
+</beans>

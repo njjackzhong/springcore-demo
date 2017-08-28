@@ -1,13 +1,21 @@
 package com.efo.drawing;
 
-import javax.annotation.PreDestroy;
+import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.BeanNameAware;
+import org.springframework.beans.factory.DisposableBean;
+import org.springframework.beans.factory.InitializingBean;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
-public class Triangle implements Shape{
+
+public class Triangle implements Shape,ApplicationContextAware,BeanNameAware,InitializingBean,DisposableBean{
     private String type;
     private int height;
     private Point pointA;
     private Point pointB;
     private Point pointC;
+    private ApplicationContext context;
+
 
 
 
@@ -79,8 +87,30 @@ public class Triangle implements Shape{
                 '}';
     }
 
-    @PreDestroy
-    private void destroy(){
-        System.out.println("Destroy Triangle");
+    public void destroy(){
+        System.out.println("Disposable Triangle.");
+    }
+
+    public void myInit(){
+        System.out.println("MyInit Triangle.");
+    }
+
+    public void myDestroy(){
+        System.out.println("MyDestroy Triangle.");
+    }
+
+    @Override
+    public void setBeanName(String s) {
+        System.out.println("Bean Name is:"+s);
+    }
+
+    @Override
+    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+        System.out.println("ApplicationContext is:"+applicationContext);
+    }
+
+    @Override
+    public void afterPropertiesSet() throws Exception {
+        System.out.println("Triangle InitializingBean.");
     }
 }
