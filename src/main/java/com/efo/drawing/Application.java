@@ -10,7 +10,7 @@ public class Application {
         long startTick = new Date().getTime();
 
 
-        AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml");
+       /* AbstractApplicationContext context = new ClassPathXmlApplicationContext("spring-beans.xml");
         context.registerShutdownHook();
         Triangle triangle = context.getBean("triangle-name", Triangle.class);               //get first level bean
         triangle.draw();
@@ -18,12 +18,17 @@ public class Application {
         triangle.setHeight(triangle.getHeight() + 1);
         triangle = context.getBean("triangle-name", Triangle.class);               //get first level bean
         triangle.draw();
-
+*/
 
 
         AbstractApplicationContext applicationContext = new ClassPathXmlApplicationContext("spring.xml");
-        Quad quad = applicationContext.getBean("quad", Quad.class);
-        System.out.println("Quad is:" + quad);
+//        Shape quad = applicationContext.getBean("quad", Shape.class);
+//        quad.draw();
+
+
+        Shape shape = applicationContext.getBean("shape",Shape.class);
+        shape.draw();
+
         applicationContext.destroy();
 
         long endTick = new Date().getTime();

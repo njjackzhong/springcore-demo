@@ -2,7 +2,7 @@ package com.efo.drawing;
 
 import java.util.List;
 
-public class Quad {
+public class Quad implements  Shape {
     private List<Point> points;
 
     public List<Point> getPoints() {
@@ -18,5 +18,10 @@ public class Quad {
         return "Quad{" +
                 "points=" + points +
                 '}';
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Quad drawn:"+getPoints());
     }
 }
